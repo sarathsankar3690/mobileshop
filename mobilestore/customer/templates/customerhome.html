@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block body_block%}
+<div class="container text-center mt-5 text-primary">
+    <h1>Welcome to the Mobile store!</h1>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            {%if messages%}
+            {%for message in messages%}
+            {{message}}
+
+            {%endfor%}
+            {%endif%}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        {%for mobile in mobiles%}
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{mobile.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{mobile.mobile_name}}</h5>
+                    <p class="card-text">Choose your mobile!</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{mobile.price}}</li>
+                    <li class="list-group-item">{{mobile.os}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="{%url 'productdetail' mobile.id%}" class="card-link">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

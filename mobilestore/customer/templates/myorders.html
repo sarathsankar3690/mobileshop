@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            {%if messages%}
+            {%for message in messages%}
+            <div>
+                {{message}}
+            </div>
+
+            {%endfor%}
+            {%endif%}
+        </div>
+    </div>
+</div>
+{{mobiles}}
+<div class="container-fluid">
+    <div class="row">
+        {%for order in orders%}
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{order.product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{order.product.mobile_name}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{order.product.price}}</li>
+                </ul>
+                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{order.status}}</li>
+                </ul>
+                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{order.qty}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="" class="card-link">Cancell order</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block body_block%}
+<div class="container text-center mt-5 text-primary">
+    <h1>Welcome to the Mobile store!</h1>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{mobile.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{mobile.mobile_name}}</h5>
+                    <p class="card-text">{{mobile.specs}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{mobile.price}}</li>
+                    <li class="list-group-item">{{mobile.os}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="{%url 'addtocart' mobile.id%}" class="card-link">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
